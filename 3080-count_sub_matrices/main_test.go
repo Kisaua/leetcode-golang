@@ -28,6 +28,14 @@ func Test_countSubmatrices(t *testing.T) {
 			},
 			want: 6,
 		},
+		{
+			name: "test case three",
+			args: args{
+				grid: [][]int{{9, 9, 3}, {1, 1, 7}, {8, 4, 6}, {10, 3, 2}, {2, 3, 3}},
+				k:    49,
+			},
+			want: 12,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
