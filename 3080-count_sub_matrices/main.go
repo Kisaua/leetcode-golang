@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 }
 
@@ -9,7 +7,6 @@ func countSubmatrices(grid [][]int, k int) int {
 	count := 0
 
 	for i := 0; i < len(grid); i++ {
-		fmt.Println(i, grid)
 		for j := 0; j < len(grid[i]); j++ {
 			left := 0
 			top := 0
