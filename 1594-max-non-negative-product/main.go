@@ -72,13 +72,14 @@ func maxProductPath(grid [][]int) int {
 			if n, ok := result[p]; ok {
 				next = &n
 			}
-			result[p] = checkPoint(grid[p.y][p.x], cur, next)
+			if grid[p.y][p.x] != 0 {
+				result[p] = checkPoint(grid[p.y][p.x], cur, next)
+			}
 		}
 
 	}
 	res := result[point{len(grid[0]) - 1, len(grid) - 1}]
 
-	fmt.Println(result, "p")
 	if res.max < 0 {
 		return -1
 	}
@@ -91,10 +92,6 @@ func maxProductPath(grid [][]int) int {
 func checkPoint(val int, cur product, next *product) product {
 	ma := cur.min * val
 	mi := cur.max * val
-
-	if val == 0 {
-		return product{0, 0}
-	}
 
 	if ma < mi {
 		ma, mi = mi, ma
