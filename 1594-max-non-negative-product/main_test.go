@@ -1,0 +1,61 @@
+package main
+
+import "testing"
+
+func Test_maxProductPath(t *testing.T) {
+	type args struct {
+		grid [][]int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "test case one",
+			args: args{
+				grid: [][]int{{-1, -2, -3}, {-2, -3, -3}, {-3, -3, -2}},
+			},
+			want: -1,
+		},
+		{
+			name: "test case two",
+			args: args{
+				grid: [][]int{{1, -2, 1}, {1, -2, 1}, {3, -4, 1}},
+			},
+			want: 8,
+		},
+		{
+			name: "test case three",
+			args: args{
+				grid: [][]int{{1, 3}, {0, -4}},
+			},
+			want: 0,
+		},
+		{
+			name: "test case four",
+			args: args{
+				grid: [][]int{
+					{2, 1, 3, 0, -3, 3, -4, 4, 0, -4},
+					{-4, -3, 2, 2, 3, -3, 1, -1, 1, -2},
+					{-2, 0, -4, 2, 4, -3, -4, -1, 3, 4},
+					{-1, 0, 1, 0, -3, 3, -2, -3, 1, 0},
+					{0, -1, -2, 0, -3, -4, 0, 3, -2, -2},
+					{-4, -2, 0, -1, 0, -3, 0, 4, 0, -3},
+					{-3, -4, 2, 1, 0, -4, 2, -4, -1, -3},
+					{3, -2, 0, -4, 1, 0, 1, -3, -1, -1},
+					{3, -4, 0, 2, 0, -2, 2, -4, -2, 4},
+					{0, 4, 0, -3, -4, 3, 3, -1, -2, -2},
+				},
+			},
+			want: 19215865,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := maxProductPath(tt.args.grid); got != tt.want {
+				t.Errorf("maxProductPath() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
