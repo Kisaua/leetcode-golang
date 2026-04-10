@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func main() {
 }
 
@@ -11,8 +9,8 @@ type robot struct {
 
 func maximumAmount(coins [][]int) int {
 	results := make([][]robot, len(coins[0]))
-	for i := 0; i < len(coins); i++ {
-		for j := 0; j < len(coins[0]); j++ {
+	for i := range len(coins) {
+		for j := range len(coins[0]) {
 			coin := coins[i][j]
 			if i == 0 && j == 0 {
 				robo := robot{sum: coin}
@@ -32,8 +30,6 @@ func maximumAmount(coins [][]int) int {
 			results[j] = addCoin(append(results[j], results[j-1]...), coin)
 		}
 	}
-	fmt.Println("==========================")
-	fmt.Println(results[len(coins[0])-1])
 	return findMax(results[len(coins[0])-1])
 }
 

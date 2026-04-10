@@ -38,7 +38,7 @@ func robotSim(commands []int, obstacles [][]int) int {
 }
 
 func makeMove(start, direction point, count int, obstacles map[point]struct{}) point {
-	for i := 1; i <= count; i++ {
+	for range count {
 		p := point{
 			x: start.x + direction.x,
 			y: start.y + direction.y,
