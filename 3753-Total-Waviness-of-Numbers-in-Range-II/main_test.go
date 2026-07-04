@@ -4,13 +4,13 @@ import "testing"
 
 func Test_totalWaviness(t *testing.T) {
 	type args struct {
-		num1 int
-		num2 int
+		num1 int64
+		num2 int64
 	}
 	tests := []struct {
 		name string
 		args args
-		want int
+		want int64
 	}{
 		{
 			name: "test case one",
@@ -29,17 +29,24 @@ func Test_totalWaviness(t *testing.T) {
 		}, {
 			name: "test case three",
 			args: args{
-				num1: 848,
-				num2: 948,
+				num1: 4848,
+				num2: 4848,
 			},
 			want: 2,
 		}, {
 			name: "test case four",
 			args: args{
-				num1: 4848,
-				num2: 4948,
+				num1: 2549294942,
+				num2: 5067104447,
 			},
-			want: 3,
+			want: 10871250585,
+		}, {
+			name: "test case five",
+			args: args{
+				num1: 8900,
+				num2: 9532,
+			},
+			want: 794,
 		},
 	}
 	for _, tt := range tests {
